@@ -1,0 +1,31 @@
+type Transaction {
+
+transactionId: ID!,
+
+accountNumber: String,
+
+trxAmount: Float,
+
+trxDate: Date,
+
+customerId: String,
+
+description: String
+
+}
+
+type Query {
+
+transactions(accountNumber: String):[Transaction]
+transactions(customerId: String):[Transaction]
+transactions(description: String):[Transaction]
+
+transactions(transactionId: ID):Transaction
+
+}
+
+type Mutation {
+
+createTransaction(accountNumber: String!, customerId: String!, description: String, trxAmount: Float, trxDate: Date):Transaction
+
+}
